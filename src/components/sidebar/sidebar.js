@@ -19,7 +19,7 @@ export default function Sidebar() {
   return (
     <div className={!sideClose ? "sidebar" : "sidebar-closed"}>
       <div className="sidebar-content">
-        <button className="sidebar-close btn" onClick={handleClick}>
+        <button className="sidebar-close btn-inverse" onClick={handleClick}>
           {" "}
           {!sideClose ? "x" : ">"}
         </button>
