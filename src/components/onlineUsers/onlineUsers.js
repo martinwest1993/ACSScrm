@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useCollection } from "../../hooks/useCollection";
 import Avatar from "../avatar/avatar";
 
@@ -6,15 +7,23 @@ import "./onlineUsers.css";
 
 export default function OnlineUsers() {
   const { error, documents } = useCollection("users");
+  const [showUsers, setShowUsers] = useState(false);
+
+  const handleClick = () => {
+    showUsers ? setShowUsers(false) : setShowUsers(true);
+  };
   return (
-    <div className="user-list">
-      <h2>All Users</h2>
+    <div className={!showUsers ? "user-list" : "user-list-closed"}>
+      <button className="usersOnline-close btn" onClick={handleClick}>
+        {!showUsers ? "x" : "<"}
+      </button>
+      {!showUsers && <h2>All Users</h2>}
       {error && <div className="error"> {error}</div>}
       {documents &&
         documents.map((user) => (
           <div key={user.id} className="user-list-item">
-            {user.online && <span className="online-user"></span>}
-            <span>{user.displayName}</span>
+            {user.online && !showUsers && <span className="online-user"></span>}
+            {!showUsers && <span>{user.displayName}</span>}
             <Avatar src={user.photoURL} />
           </div>
         ))}

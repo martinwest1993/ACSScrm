@@ -7,6 +7,7 @@ import { useState } from "react";
 import "./sidebar.css";
 import DashboardIcon from "../../assets/dashboard_icon.svg";
 import AddIcon from "../../assets/add_icon.svg";
+import CustomerIcon from "../../assets/customers_icon.svg";
 
 export default function Sidebar() {
   const { user } = useAuthContext();
@@ -45,7 +46,7 @@ export default function Sidebar() {
             </li>
             <li>
               <NavLink to="/customers">
-                <img src={DashboardIcon} alt="customers icon" />
+                <img src={CustomerIcon} alt="customers icon" />
                 {!sideClose && <span> Customers </span>}
               </NavLink>
             </li>
