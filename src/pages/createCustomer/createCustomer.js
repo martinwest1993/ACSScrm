@@ -32,6 +32,7 @@ export default function CreateCustomer() {
       address,
       complaints: [],
       invoiceHistory: [],
+      notes: [],
     };
     console.log(customer);
     await addDocument(customer);
