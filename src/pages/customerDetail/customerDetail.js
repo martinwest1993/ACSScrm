@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
-import { CustomerHeader } from "./customerHeader";
+import CustomerHeader from "./customerHeader";
 import CustomerPanel from "./customerPanel";
 import { Link } from "react-router-dom";
 //styles
