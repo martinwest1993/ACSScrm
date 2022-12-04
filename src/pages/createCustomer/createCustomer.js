@@ -16,7 +16,6 @@ export default function CreateCustomer() {
   const [logo, setLogo] = useState(null);
   const [logoError, setLogoError] = useState(null);
   const [address, setAddress] = useState("");
-  const [customerBugTrack, setCustomerBugTrack] = useState([]);
   const [formError, setFormError] = useState(null);
 
   const handleSubmit = async (e) => {

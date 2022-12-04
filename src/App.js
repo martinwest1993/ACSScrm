@@ -16,6 +16,8 @@ import OnlineUsers from "./components/onlineUsers/onlineUsers";
 import Customers from "./pages/customers/customers";
 import CreateCustomer from "./pages/createCustomer/createCustomer";
 import CustomerDetail from "./pages/customerDetail/customerDetail";
+import CustomerBugLog from "./pages/customerBugLog/customerBugLog";
+import CustomerNotes from "./pages/customerNotes/customerNotes";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -57,8 +59,16 @@ function App() {
                 element={user ? <Project /> : <Navigate to="/login" />}
               />
               <Route
-                path="/customerDetail/:name"
+                path="/customerDetail/:id"
                 element={user ? <CustomerDetail /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/customerDetail/:id/notes"
+                element={user ? <CustomerNotes /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/customerDetail/:id/bugLog"
+                element={user ? <CustomerBugLog /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>
