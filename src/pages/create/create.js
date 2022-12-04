@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 // styles
 import "./create.css";
 
+// select fields
 const categories = [
   { value: "development", label: "Development" },
   { value: "design", label: "Design" },
@@ -59,11 +60,11 @@ export default function Create() {
       id: user.uid,
     };
 
-    const assignedUsersList = assignedUsers.map((u) => {
+    const assignedUsersList = assignedUsers.map((user) => {
       return {
-        displayName: u.value.displayName,
-        photoURL: u.value.photoURL,
-        id: u.value.id,
+        displayName: user.value.displayName,
+        photoURL: user.value.photoURL,
+        id: user.value.id,
       };
     });
 

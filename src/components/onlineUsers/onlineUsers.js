@@ -15,7 +15,7 @@ export default function OnlineUsers() {
   return (
     <div className={!showUsers ? "user-list" : "user-list-closed"}>
       <button className="usersOnline-close btn" onClick={handleClick}>
-        {!showUsers ? "x" : "<"}
+        {!showUsers ? "x" : "Users"}
       </button>
       {!showUsers && <h2>All Users</h2>}
       {error && <div className="error"> {error}</div>}
@@ -24,7 +24,7 @@ export default function OnlineUsers() {
           <div key={user.id} className="user-list-item">
             {user.online && !showUsers && <span className="online-user"></span>}
             {!showUsers && <span>{user.displayName}</span>}
-            <Avatar src={user.photoURL} />
+            {!showUsers && <Avatar src={user.photoURL} />}
           </div>
         ))}
     </div>

@@ -42,45 +42,13 @@
 /* user list closed*/
 .user-list-closed {
   width: 75px;
-  min-width: 75px;
   box-sizing: border-box;
-  background: #fbfbfb;
+  background: var(--bg-color);
   color: var(--heading-color);
+  height: 100px;
+  margin-right: 20px;
 }
 
 .usersOnline-close {
-  margin: 10px;
-  border: none;
-}
-
-.user-list-closed h2 {
-  text-align: right;
-  margin-bottom: 40px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  font-size: 1.2em;
-}
-
-.user-list-closed .user-list-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-}
-
-.user-list-closed .avatar {
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-}
-
-/* online users*/
-.user-list-closed .online-user {
-  display: inline-block;
-  margin-right: 10px;
-  width: 12px;
-  height: 12px;
-  background: #0ebb50;
-  border-radius: 50%;
-  margin-top: 2px;
+  margin-top: 30px;
 }
