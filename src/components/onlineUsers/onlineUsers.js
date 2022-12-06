@@ -7,7 +7,7 @@ import "./onlineUsers.css";
 
 export default function OnlineUsers() {
   const { error, documents } = useCollection("users");
-  const [showUsers, setShowUsers] = useState(false);
+  const [showUsers, setShowUsers] = useState(true);
 
   const handleClick = () => {
     showUsers ? setShowUsers(false) : setShowUsers(true);

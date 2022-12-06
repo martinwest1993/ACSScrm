@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 
 //styles
@@ -35,7 +35,7 @@ export default function CustomerBugLog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
-
+    // use library to generate uuid math.random is temp
     const bugToAdd = {
       reporter,
       detail,

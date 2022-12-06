@@ -11,7 +11,7 @@ import CustomerIcon from "../../assets/customers_icon.svg";
 
 export default function Sidebar() {
   const { user } = useAuthContext();
-  const [sideClose, setSideClose] = useState(false);
+  const [sideClose, setSideClose] = useState(true);
 
   const handleClick = () => {
     sideClose ? setSideClose(false) : setSideClose(true);

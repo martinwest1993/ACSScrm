@@ -27,6 +27,12 @@ export default function CustomerDetail() {
         <Link to={`/customerDetail/${id}/bugLog`} className="panel">
           <CustomerPanel title={"Bug Log"} />
         </Link>
+        <Link to={`/customerDetail/${id}/complaints`} className="panel">
+          <CustomerPanel title={"Complaints"} />
+        </Link>
+        <Link to={`/customerDetail/${id}/invoiceHistory`} className="panel">
+          <CustomerPanel title={"Invoices"} />
+        </Link>
       </div>
     </div>
   );

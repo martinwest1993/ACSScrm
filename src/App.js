@@ -18,6 +18,8 @@ import CreateCustomer from "./pages/createCustomer/createCustomer";
 import CustomerDetail from "./pages/customerDetail/customerDetail";
 import CustomerBugLog from "./pages/customerBugLog/customerBugLog";
 import CustomerNotes from "./pages/customerNotes/customerNotes";
+import CustomerComplaints from "./pages/customerComplaints/customerComplaints";
+import CustomerInvoices from "./pages/customerInvoices/customerInvoices";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -69,6 +71,16 @@ function App() {
               <Route
                 path="/customerDetail/:id/bugLog"
                 element={user ? <CustomerBugLog /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/customerDetail/:id/complaints"
+                element={
+                  user ? <CustomerComplaints /> : <Navigate to="/login" />
+                }
+              />
+              <Route
+                path="/customerDetail/:id/invoiceHistory"
+                element={user ? <CustomerInvoices /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>
