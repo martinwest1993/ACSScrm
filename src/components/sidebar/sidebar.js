@@ -8,6 +8,7 @@ import "./sidebar.css";
 import DashboardIcon from "../../assets/dashboard_icon.svg";
 import AddIcon from "../../assets/add_icon.svg";
 import CustomerIcon from "../../assets/customers_icon.svg";
+import ScrollIcon from "../../assets/scroll_icon.svg";
 
 export default function Sidebar() {
   const { user } = useAuthContext();
@@ -54,6 +55,12 @@ export default function Sidebar() {
               <NavLink to="/createCustomer">
                 <img src={AddIcon} alt="add customer icon" />
                 {!sideClose && <span> New Customer </span>}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/archivedProjects">
+                <img src={ScrollIcon} alt="archived projects icon" />
+                {!sideClose && <span> Project Archive </span>}
               </NavLink>
             </li>
           </ul>

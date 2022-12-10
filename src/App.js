@@ -20,6 +20,7 @@ import CustomerBugLog from "./pages/customerBugLog/customerBugLog";
 import CustomerNotes from "./pages/customerNotes/customerNotes";
 import CustomerComplaints from "./pages/customerComplaints/customerComplaints";
 import CustomerInvoices from "./pages/customerInvoices/customerInvoices";
+import ArchivedProjects from "./pages/archivedProjects/archivedProjects";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -81,6 +82,10 @@ function App() {
               <Route
                 path="/customerDetail/:id/invoiceHistory"
                 element={user ? <CustomerInvoices /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/archivedProjects"
+                element={user ? <ArchivedProjects /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>

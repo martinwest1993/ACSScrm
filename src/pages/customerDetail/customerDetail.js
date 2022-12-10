@@ -18,22 +18,25 @@ export default function CustomerDetail() {
   }
 
   return (
-    <div className="customer-detail">
-      <CustomerHeader customer={document} />
-      <div className="panel-container">
-        <Link to={`/customerDetail/${id}/notes`} className="panel">
-          <CustomerPanel title={"Notes"} />
-        </Link>
-        <Link to={`/customerDetail/${id}/bugLog`} className="panel">
-          <CustomerPanel title={"Bug Log"} />
-        </Link>
-        <Link to={`/customerDetail/${id}/complaints`} className="panel">
-          <CustomerPanel title={"Complaints"} />
-        </Link>
-        <Link to={`/customerDetail/${id}/invoiceHistory`} className="panel">
-          <CustomerPanel title={"Invoices"} />
-        </Link>
+    <div className="customer-detail-grid">
+      <div className="header-grid">
+        <CustomerHeader customer={document} />
       </div>
+      <Link to={`/customerDetail/${id}/notes`} className="panel-1 panel">
+        <CustomerPanel title={"Notes"} />
+      </Link>
+      <Link to={`/customerDetail/${id}/bugLog`} className="panel-2 panel">
+        <CustomerPanel title={"Bug Log"} />
+      </Link>
+      <Link to={`/customerDetail/${id}/complaints`} className="panel-3 panel">
+        <CustomerPanel title={"Complaints"} />
+      </Link>
+      <Link
+        to={`/customerDetail/${id}/invoiceHistory`}
+        className="panel-4 panel"
+      >
+        <CustomerPanel title={"Invoices"} />
+      </Link>
     </div>
   );
 }

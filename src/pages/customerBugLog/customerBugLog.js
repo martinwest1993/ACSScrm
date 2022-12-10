@@ -64,9 +64,19 @@ export default function CustomerBugLog() {
 
   return (
     <div>
+      <h2> Bug Log: {document.name}</h2>
       <div className={displayForm ? "form-module-open" : "form-display-close"}>
-        {!displayForm && <button onClick={handleClick}> + </button>}
+        {!displayForm && (
+          <div className="add-bug-container">
+            <button onClick={handleClick} className="add-bug-button">
+              {" "}
+              +{" "}
+            </button>
+            <span>Add Bug</span>
+          </div>
+        )}
         {displayForm && (
+          // make component for form
           <form onSubmit={handleSubmit}>
             <button onClick={handleClick}> x </button>
             <label>
@@ -110,16 +120,18 @@ export default function CustomerBugLog() {
           </form>
         )}
       </div>
-      {document.customerBugs.length === 0 && <h4> No Bugs Logged</h4>}
-      {document.customerBugs.length > 0 &&
-        document.customerBugs.map((bug) => (
-          <div key={bug.id}>
-            <h4>{bug.reporter}</h4>
-            <p>{bug.detail}</p>
-            <p>{bug.resolution}</p>
-            <p>{bug.location}</p>
-          </div>
-        ))}
+      <div className="bug-list">
+        {document.customerBugs.length === 0 && <h4> No Bugs Logged</h4>}
+        {document.customerBugs.length > 0 &&
+          document.customerBugs.map((bug) => (
+            <div key={bug.id} className="bug-list-bug">
+              <h4>{bug.reporter}</h4>
+              <p>{bug.detail}</p>
+              <p>{bug.resolution}</p>
+              <p>{bug.location}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
