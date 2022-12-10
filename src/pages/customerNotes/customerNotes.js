@@ -41,7 +41,7 @@ export default function CustomerNotes() {
       regarding,
       detail,
       createdBy: user.displayName,
-      avatar: user.photoURL,
+      avatar: user.photoURL || null,
       id: Math.random(),
     };
 
@@ -61,8 +61,19 @@ export default function CustomerNotes() {
 
   return (
     <div>
+      <div className="header-bug">
+        <h2> Notes: {document.name}</h2>
+        {!displayForm && (
+          <div className="add-bug-container">
+            <button onClick={handleClick} className="add-bug-button">
+              {" "}
+              +{" "}
+            </button>
+            <span>Add Note</span>
+          </div>
+        )}
+      </div>
       <div className={displayForm ? "form-module-open" : "form-display-close"}>
-        {!displayForm && <button onClick={handleClick}> + </button>}
         {displayForm && (
           <form onSubmit={handleSubmit}>
             <button onClick={handleClick}> x </button>
@@ -89,16 +100,18 @@ export default function CustomerNotes() {
           </form>
         )}
       </div>
-      {document.notes.length === 0 && <h4> No Customer Notes</h4>}
-      {document.notes.length > 0 &&
-        document.notes.map((note) => (
-          <div key={note.id}>
-            <h4>{note.regarding}</h4>
-            <p>{note.detail}</p>
-            {note.avatar && <Avatar src={note.avatar} />}
-            <p>{note.createdBy}</p>
-          </div>
-        ))}
+      <div className="notes-list">
+        {document.notes.length === 0 && <h4> No Customer Notes</h4>}
+        {document.notes.length > 0 &&
+          document.notes.map((note) => (
+            <div key={note.id} className="notes-list-note">
+              <h4>{note.regarding}</h4>
+              <p>{note.detail}</p>
+              {note.avatar && <Avatar src={note.avatar} />}
+              <p>{note.createdBy}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }

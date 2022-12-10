@@ -77,6 +77,7 @@ export default function Create() {
       createdBy,
       assignedUsersList,
     };
+
     await addDocument(project);
     if (!response.error) {
       navigate("/");

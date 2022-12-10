@@ -64,8 +64,8 @@ export default function CustomerBugLog() {
 
   return (
     <div>
-      <h2> Bug Log: {document.name}</h2>
-      <div className={displayForm ? "form-module-open" : "form-display-close"}>
+      <div className="header-bug">
+        <h2> Bug Log: {document.name}</h2>
         {!displayForm && (
           <div className="add-bug-container">
             <button onClick={handleClick} className="add-bug-button">
@@ -75,6 +75,8 @@ export default function CustomerBugLog() {
             <span>Add Bug</span>
           </div>
         )}
+      </div>
+      <div className={displayForm ? "form-module-open" : "form-display-close"}>
         {displayForm && (
           // make component for form
           <form onSubmit={handleSubmit}>

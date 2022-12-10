@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
+import { projectStorage } from "../../firebase/config";
 
 // styles
 import "./createCustomer.css";
@@ -22,11 +23,20 @@ export default function CreateCustomer() {
     e.preventDefault();
     setFormError(null);
 
+    let imgUrl;
+
+    //upload customer logo
+    if (logo) {
+      const uploadPath = `logos/${name}/${logo.name}`;
+      const img = await projectStorage.ref(uploadPath).put(logo);
+      imgUrl = await img.ref.getDownloadURL();
+    }
+
     const customer = {
       name,
       email,
       contactNumber,
-      logo,
+      logoURL: imgUrl ? imgUrl : "",
       customerBugs: [],
       address,
       complaints: [],
@@ -35,12 +45,34 @@ export default function CreateCustomer() {
     };
     console.log(customer);
     await addDocument(customer);
+
     if (!response.error) {
       navigate("/customers");
     }
   };
 
-  const handleFileChange = () => {};
+  const handleFileChange = (e) => {
+    setLogo(null);
+    let selected = e.target.files[0];
+    console.log(selected);
+
+    if (!selected) {
+      setLogoError("Please select a file");
+      return;
+    }
+    if (!selected.type.includes("image")) {
+      setLogoError("Selected file must be an image");
+      return;
+    }
+    if (selected.size > 150000) {
+      setLogoError("Image file size must be less than 150kb");
+      return;
+    }
+
+    setLogoError(null);
+    setLogo(selected);
+    console.log("Logo updated");
+  };
   return (
     <div className="create-form">
       <h2 className="page-title"> Add A New Customer</h2>
