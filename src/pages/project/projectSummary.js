@@ -1,10 +1,11 @@
 import Avatar from "../../components/avatar/avatar";
-import { useFirestore } from "../../hooks/useFirestore";
+import { useFirestore, deleteDocument } from "../../hooks/useFirestore";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function ProjectSummary({ project }) {
   const { updateDocument, response } = useFirestore("projects");
+  const { deleteDocument } = useFirestore("projects");
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
@@ -17,6 +18,12 @@ export default function ProjectSummary({ project }) {
       return <div className="error">{response.error}</div>;
     } else navigate("/");
   };
+
+  const handleClickDelete = (e) => {
+    deleteDocument(project.id);
+    navigate("/archivedProjects");
+  };
+
   return (
     <div>
       <div className="project-summary">
@@ -35,9 +42,14 @@ export default function ProjectSummary({ project }) {
           ))}
         </div>
       </div>
-      {user.uid === project.createdBy.id && (
+      {user.uid === project.createdBy.id && !project.complete && (
         <button className="btn" onClick={handleClick}>
           Mark as Complete
+        </button>
+      )}
+      {user.uid === project.createdBy.id && project.complete && (
+        <button className="btn" onClick={handleClickDelete}>
+          Delete From Archive
         </button>
       )}
     </div>
