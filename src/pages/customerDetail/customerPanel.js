@@ -1,7 +1,7 @@
 export default function CustomerPanel({ title }) {
   return (
     <div>
-      <h1>{title}</h1>
+      <h3>{title}</h3>
     </div>
   );
 }
