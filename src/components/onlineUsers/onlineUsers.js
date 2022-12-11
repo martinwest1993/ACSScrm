@@ -19,14 +19,18 @@ export default function OnlineUsers() {
       </button>
       {!showUsers && <h2>All Users</h2>}
       {error && <div className="error"> {error}</div>}
-      {documents &&
-        documents.map((user) => (
-          <div key={user.id} className="user-list-item">
-            {user.online && !showUsers && <span className="online-user"></span>}
-            {!showUsers && <span>{user.displayName}</span>}
-            {!showUsers && <Avatar src={user.photoURL} />}
-          </div>
-        ))}
+      <div className="user-list-item-container">
+        {documents &&
+          documents.map((user) => (
+            <div key={user.id} className="user-list-item">
+              {user.online && !showUsers && (
+                <span className="online-user"></span>
+              )}
+              {!showUsers && <span>{user.displayName}</span>}
+              {!showUsers && <Avatar src={user.photoURL} />}
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
