@@ -4,13 +4,18 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function ProjectSummary({ project }) {
-  const { deleteDocument } = useFirestore("projects");
+  const { updateDocument, response } = useFirestore("projects");
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
-    deleteDocument(project.id);
-    navigate("/");
+  const handleClick = async (e) => {
+    // deleteDocument(project.id);
+    await updateDocument(project.id, {
+      complete: true,
+    });
+    if (response.error) {
+      return <div className="error">{response.error}</div>;
+    } else navigate("/");
   };
   return (
     <div>
