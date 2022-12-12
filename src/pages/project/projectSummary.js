@@ -1,5 +1,5 @@
 import Avatar from "../../components/avatar/avatar";
-import { useFirestore, deleteDocument } from "../../hooks/useFirestore";
+import { useFirestore } from "../../hooks/useFirestore";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,6 @@ export default function ProjectSummary({ project }) {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
-    // deleteDocument(project.id);
     await updateDocument(project.id, {
       complete: true,
     });
