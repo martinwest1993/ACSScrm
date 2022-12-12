@@ -82,7 +82,7 @@ export default function CustomerBugLog() {
           <form onSubmit={handleSubmit}>
             <button onClick={handleClick}> x </button>
             <label>
-              <span>Reporter:</span>
+              <span> Bug title:</span>
               <input
                 required
                 type="text"

@@ -21,6 +21,8 @@ import CustomerNotes from "./pages/customerNotes/customerNotes";
 import CustomerComplaints from "./pages/customerComplaints/customerComplaints";
 import CustomerInvoices from "./pages/customerInvoices/customerInvoices";
 import ArchivedProjects from "./pages/archivedProjects/archivedProjects";
+import Messenger from "./pages/messenger/messenger";
+import Holidays from "./pages/holidays/holidays";
 
 function App() {
   const { user, authIsReady } = useAuthContext();
@@ -86,6 +88,14 @@ function App() {
               <Route
                 path="/archivedProjects"
                 element={user ? <ArchivedProjects /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/messenger"
+                element={user ? <Messenger /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/holidays"
+                element={user ? <Holidays /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>

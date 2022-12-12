@@ -9,6 +9,8 @@ import DashboardIcon from "../../assets/dashboard_icon.svg";
 import AddIcon from "../../assets/add_icon.svg";
 import CustomerIcon from "../../assets/customers_icon.svg";
 import ScrollIcon from "../../assets/scroll_icon.svg";
+import MessengerIcon from "../../assets/message.svg";
+import HolidaysIcon from "../../assets/calendar.svg";
 
 export default function Sidebar() {
   const { user } = useAuthContext();
@@ -61,6 +63,18 @@ export default function Sidebar() {
               <NavLink to="/archivedProjects">
                 <img src={ScrollIcon} alt="archived projects icon" />
                 {!sideClose && <span> Project Archive </span>}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/messenger">
+                <img src={MessengerIcon} alt="messenger icon" />
+                {!sideClose && <span> Messenger </span>}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/holidays">
+                <img src={HolidaysIcon} alt="holidays icon" />
+                {!sideClose && <span> Holidays </span>}
               </NavLink>
             </li>
           </ul>
