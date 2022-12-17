@@ -33,13 +33,25 @@ export const useSignup = () => {
       const imgUrl = await img.ref.getDownloadURL();
 
       // add display name to user
-      await res.user.updateProfile({ displayName, photoURL: imgUrl });
+      await res.user.updateProfile({
+        displayName,
+        photoURL: imgUrl,
+        email,
+        uid: res.user.uid,
+      });
 
       //create user document
       await projectFirestore.collection("users").doc(res.user.uid).set({
         online: true,
         displayName,
         photoURL: imgUrl,
+        uid: res.user.uid,
+        email,
+      });
+
+      //create user chat document
+      await projectFirestore.collection("userChats").doc(res.user.uid).set({
+        data: [],
       });
 
       // dispatch login action
