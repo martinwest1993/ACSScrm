@@ -1,10 +1,22 @@
+import { useState } from "react";
+import Calendar from "react-calendar";
+
 //styles
 import "./holidays.css";
 
 export default function Holidays() {
+  const [date, setDate] = useState(new Date());
+
   return (
-    <div>
-      <h4>holidays</h4>
+    <div className="app">
+      <h1 className="text-center">Holiday's </h1>
+      <div className="calendar-container">
+        <Calendar onChange={setDate} value={date} />
+      </div>
+      <p className="text-center">
+        <span className="bold">Selected Date:</span>
+        {date.toDateString()}
+      </p>
     </div>
   );
 }

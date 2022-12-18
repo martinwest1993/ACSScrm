@@ -20,19 +20,19 @@
   text-decoration: none;
   grid-row-start: 3;
   grid-column-start: 3;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../assets/bug.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-end: 5;
   grid-column-end: 5;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../assets/note.png");
 }
 .panel-2 {
   text-decoration: none;
   grid-row-start: 3;
   grid-column-start: 1;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../assets/note.png");
+    url("../../assets/bug.png");
   background-repeat: no-repeat;
   background-position: center;
   grid-row-end: 5;

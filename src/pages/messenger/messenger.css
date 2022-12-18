@@ -194,10 +194,12 @@
 }
 
 .message-info img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  align-items: flex-end;
+  float: left;
 }
 
 .message-content {
@@ -205,6 +207,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-start;
 }
 
 .message-content p {
@@ -222,6 +225,11 @@
   flex-direction: row-reverse;
 }
 
+.owner .message-info img {
+  align-items: flex-end;
+  float: right;
+}
+
 .owner .message-content {
   align-items: flex-end;
 }
@@ -231,4 +239,9 @@
   color: #fff;
   border-radius: 10px 0px 10px 10px;
   max-width: max-content;
+}
+
+.date-display-message {
+  font-size: 0.6em;
+  margin-top: 5px;
 }

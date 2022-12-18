@@ -8,7 +8,7 @@ export default function Messages() {
   const { document, error } = useDocument("chats", data.chatID);
 
   if (error) {
-    return <span className="error"> {error}</span>;
+    return <div className="messages"> No User Selected</div>;
   }
 
   if (!document) {
